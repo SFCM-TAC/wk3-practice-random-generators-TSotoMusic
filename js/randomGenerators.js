@@ -8,7 +8,7 @@ this.max = max;
 this.min = min;
 this.options = options || [];
 this.randomResult = function() {
-  var x = Math.ceil(Math.random() * max);
+  var x = Math.floor(Math.random() * max);
   return options[x]
   console.log(options[x])
 };
