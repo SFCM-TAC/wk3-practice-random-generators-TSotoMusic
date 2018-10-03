@@ -8,30 +8,34 @@ this.max = max;
 this.min = min;
 this.options = options || [];
 this.randomResult = function() {
-  var x = math.random()* (max-min) + min;
+  var x = Math.ceil(Math.random() * max);
   return options[x]
+  console.log(options[x])
 };
-// TODO: Initialise diceRollGenerator and eightBallGenerator
+};
+// TOD: Initialise diceRollGenerator and eightBallGenerator
 // using the constructor notation and the Generator object
 // you just created
-const diceRollGenerator = new Generator("Dice roll", 1, 6, [1, 2, 3, 4, 5, 6
+const diceRollGenerator = new Generator("Dice roll", 1, 6, [1, 2, 3, 4, 5, 6,
+  ]);
+const eightBallGenerator = new Generator("Eight Ball", 1, 10, [
+  "Of Course!", "Seems so", "Very likely", "Yes", "Indubitably", "Ehhhh", "I guess", "Maybe", "Hell no!",
+  "Why would it work well for a worthless piece of trash like you?",
 ]);
-const eightBallGenerator = null;
 
 function handleDiceRoll() {
   const resultElement = document.getElementById('diceResult');
-
-  // TODO: call a method on diceRollGenerator to populate result with a random value
-  const result = "result";
-  resultElement.innerHTML = result;
+  var answer= diceRollGenerator.randomResult()
+  const result = "result: ";
+  resultElement.innerHTML = result + answer;
 }
 
 function handleEightBallShake() {
   const resultElement = document.getElementById('eightBallResult');
-
+  var answer = eightBallGenerator.randomResult()
   // TODO: call a method on eightBallGenerator to populate result with a random value
   const result = "result: ";
-  resultElement.innerHTML = result;
+  resultElement.innerHTML = result + answer;
 }
 
 document.addEventListener("DOMContentLoaded", function() {
