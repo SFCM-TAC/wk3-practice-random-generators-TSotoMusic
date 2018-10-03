@@ -9,8 +9,19 @@ this.min = min;
 this.options = options || [];
 this.randomResult = function() {
   var x = Math.floor(Math.random() * max);
-  return options[x]
-  console.log(options[x])
+  return options[x];
+  console.log(options[x]);
+};
+this.addOption = function(option) {
+  options.push(option);
+  max++;
+};
+this.removeOption = function(option) {
+  var index = options.indexof(option);
+
+  if (index !== -1) {
+    options.splice(index, 1);
+  }
 };
 };
 // TOD: Initialise diceRollGenerator and eightBallGenerator
@@ -25,15 +36,14 @@ const eightBallGenerator = new Generator("Eight Ball", 1, 10, [
 
 function handleDiceRoll() {
   const resultElement = document.getElementById('diceResult');
-  var answer= diceRollGenerator.randomResult()
+  var answer= diceRollGenerator.randomResult();
   const result = "result: ";
   resultElement.innerHTML = result + answer;
 }
 
 function handleEightBallShake() {
   const resultElement = document.getElementById('eightBallResult');
-  var answer = eightBallGenerator.randomResult()
-  // TODO: call a method on eightBallGenerator to populate result with a random value
+  var answer = eightBallGenerator.randomResult();
   const result = "result: ";
   resultElement.innerHTML = result + answer;
 }
