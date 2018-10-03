@@ -13,11 +13,15 @@ this.randomResult = function() {
   console.log(options[x]);
 };
 this.addOption = function(option) {
-  options.push(option);
-  max++;
+  var index = options.indexOf(option);
+
+  if (index === -1) {
+    options.push(option);
+    max++
+  }
 };
 this.removeOption = function(option) {
-  var index = options.indexof(option);
+  var index = options.indexOf(option);
 
   if (index !== -1) {
     options.splice(index, 1);
